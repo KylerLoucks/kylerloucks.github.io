@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DevOps Engineer – Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      color: #f5f5f5;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Background video */
+    .bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+      filter: brightness(1) saturate(1);
+    }
+
+    /* Top bar */
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      z-index: 10;
+      background: rgba(10, 10, 15, 0.55); /* translucent */
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .brand {
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      color: #f5f5f5;
+      text-decoration: none;
+      opacity: 0.85;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+      transform: translateY(-1px);
+    }
+
+    .page {
+      padding-top: 80px; /* space for top bar */
+      padding-bottom: 64px;
+    }
+
+    .content {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    section {
+      margin-bottom: 3rem;
+      background: rgba(5, 5, 15, 0.72);
+      border-radius: 18px;
+      padding: 1.75rem 1.75rem 1.9rem;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.55);
+    }
+
+    section + section {
+      margin-top: 2rem;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 0.4rem;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+      opacity: 0.9;
+    }
+
+    .subtitle {
+      font-size: 0.98rem;
+      opacity: 0.85;
+      margin-bottom: 1.25rem;
+    }
+
+    p {
+      line-height: 1.6;
+      font-size: 0.98rem;
+      opacity: 0.92;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+
+    .tag {
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      opacity: 0.9;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
+      gap: 1.5rem;
+    }
+
+    .item {
+      margin-bottom: 1rem;
+    }
+
+    .item-title {
+      font-weight: 600;
+      font-size: 0.98rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .item-meta {
+      font-size: 0.8rem;
+      opacity: 0.75;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.35rem;
+    }
+
+    .item-desc {
+      font-size: 0.92rem;
+      opacity: 0.9;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.9rem;
+    }
+
+    .pill-link {
+      border-radius: 999px;
+      padding: 0.4rem 0.9rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: #f5f5f5;
+      opacity: 0.9;
+      background: rgba(255, 255, 255, 0.04);
+      transition: border-color 0.2s ease, opacity 0.2s ease, transform 0.15s ease;
+    }
+
+    .pill-link:hover {
+      border-color: rgba(255, 255, 255, 0.6);
+      opacity: 1;
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 768px) {
+      .top-bar {
+        padding: 0 1rem;
+      }
+
+      .nav-links {
+        gap: 0.8rem;
+        font-size: 0.8rem;
+      }
+
+      .two-col {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      h1 {
+        font-size: 1.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Background video -->
+  <video class="bg-video" autoplay muted loop playsinline>
+    <source src="./assets/chrome_wave.webm" type="video/webm" />
+    <source src="./assets/chrome_wave.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Top bar -->
+  <header class="top-bar">
+    <div class="brand">DevOps / Cloud Engineer</div>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <div class="content">
+      <!-- Hero / About -->
+      <section id="about">
+        <h1>Your Name</h1>
+        <div class="subtitle">
+          DevOps & Cloud Engineer · AWS · CI/CD · Containers · Observability
+        </div>
+        <p>
+          I design and operate reliable cloud infrastructure, CI/CD pipelines,
+          and observability stacks so teams can ship faster with confidence.
+          My focus is on automation, reproducibility, and giving developers a
+          smooth path from commit to production.
+        </p>
+
+        <div class="tag-row">
+          <span class="tag">AWS</span>
+          <span class="tag">Kubernetes</span>
+          <span class="tag">Terraform</span>
+          <span class="tag">GitHub Actions</span>
+          <span class="tag">ECS / EKS</span>
+          <span class="tag">Monitoring</span>
+        </div>
+      </section>
+
+      <!-- Skills / Stack -->
+      <section id="skills" class="two-col">
+        <div>
+          <h2>Skills & Tooling</h2>
+          <div class="item">
+            <div class="item-title">Cloud & Container Platforms</div>
+            <div class="item-desc">
+              AWS (EC2, ECS, EKS, Lambda, RDS), Docker, Kubernetes, Helm,
+              serverless patterns, multi-account setups.
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-title">CI/CD & Automation</div>
+            <div class="item-desc">
+              GitHub Actions, GitLab CI, CodePipeline, ArgoCD, automated
+              blue/green deployments, infrastructure testing.
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-title">Infrastructure as Code</div>
+            <div class="item-desc">
+              Terraform, CloudFormation, CDK, modular reusable stacks, policy
+              as code, cost- and security-aware design.
+            </div>
+          </div>
+        </div>
+        <div>
+          <h2>Focus Areas</h2>
+          <p class="item-desc">
+            - Designing secure, multi-environment cloud foundations<br />
+            - Building reproducible dev/test/prod pipelines<br />
+            - Improving reliability with metrics, logs, and tracing<br />
+            - Reducing manual toil through automation and good tooling
+          </p>
+        </div>
+      </section>
+
+      <!-- Experience -->
+      <section id="experience">
+        <h2>Experience</h2>
+        <div class="item">
+          <div class="item-title">Senior DevOps / Cloud Engineer · Company</div>
+          <div class="item-meta">2022 – Present · Remote</div>
+          <div class="item-desc">
+            Lead design and implementation of AWS-based infrastructure,
+            CI/CD pipelines, and Kubernetes platforms. Partner with
+            engineering teams to migrate workloads, improve reliability,
+            and reduce deployment friction.
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-title">DevOps Engineer · Previous Company</div>
+          <div class="item-meta">2019 – 2022</div>
+          <div class="item-desc">
+            Owned build and release pipelines, containerized legacy
+            services, and introduced infrastructure as code with
+            Terraform, improving repeatability and disaster recovery.
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects">
+        <h2>Selected Projects</h2>
+        <div class="item">
+          <div class="item-title">Ephemeral Environment Platform</div>
+          <div class="item-meta">Kubernetes · Terraform · GitHub Actions</div>
+          <div class="item-desc">
+            Built a system to spin up per-PR environments on demand, wired
+            to CI pipelines and GitHub status checks, cutting feedback
+            cycles and making testing changes safer.
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-title">Observability Stack</div>
+          <div class="item-meta">Prometheus · Grafana · Loki · Tempo</div>
+          <div class="item-desc">
+            Deployed a unified metrics, logs, and tracing platform for
+            microservices, including prebuilt dashboards and SLO alerts
+            tailored to product teams.
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>
+          Open to remote and hybrid roles focused on DevOps, platform
+          engineering, and cloud architecture.
+        </p>
+        <div class="contact-row">
+          <a class="pill-link" href="mailto:you@example.com">you@example.com</a>
+          <a class="pill-link" href="https://linkedin.com/in/your-handle" target="_blank" rel="noreferrer">
+            LinkedIn
+          </a>
+          <a class="pill-link" href="https://github.com/your-handle" target="_blank" rel="noreferrer">
+            GitHub
+          </a>
+          <a class="pill-link" href="your-resume.pdf" target="_blank" rel="noreferrer">
+            Download Résumé (PDF)
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
