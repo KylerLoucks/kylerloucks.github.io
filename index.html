@@ -149,6 +149,12 @@
       text-decoration: none;
       color: #f5f5f5;
       background: rgba(255,255,255,0.05);
+      transition:
+        transform 150ms ease,
+        box-shadow 150ms ease,
+        background 150ms ease,
+        border-color 150ms ease,
+        opacity 120ms ease;
     }
 
     .btn.primary {
@@ -156,7 +162,22 @@
       border-color: rgba(255,255,255,0.45);
     }
 
-    .btn:hover { opacity: 1; }
+    .btn:hover {
+      opacity: 1;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.35);
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.45);
+    }
+
+    .btn.primary:hover {
+      background: rgba(255,255,255,0.18);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.28);
+    }
 
     .tag-row {
       display: flex;
@@ -329,8 +350,8 @@
         <p>Hillsboro, OR · Open to Platform, DevOps, and Cloud Engineering roles</p>
         <div class="cta-row">
           <a class="btn primary" href="mailto:kyler@loucksland.com">kyler@loucksland.com</a>
-          <a class="btn" href="https://www.linkedin.com/in/kylerloucks" target="_blank">LinkedIn</a>
-          <a class="btn" href="https://github.com/KylerLoucks" target="_blank">GitHub</a>
+          <a class="btn primary" href="https://www.linkedin.com/in/kylerloucks" target="_blank">LinkedIn</a>
+          <a class="btn primary" href="https://github.com/KylerLoucks" target="_blank">GitHub</a>
         </div>
       </section>
 
